@@ -1,0 +1,6 @@
+library(quadprog)
+D <- matrix( c(6, 2, 1, 2, 5, 2, 1, 2,4), nr = 3)
+d <- c(8, 3, 3)
+A <- matrix( c(1, 0, 1, 0, 1, 1), nc = 2)
+b <- c(3, 0)
+solve.QP(Dmat = D, dvec = d, Amat = A, bvec = b, meq=2)

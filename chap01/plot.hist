@@ -1,0 +1,23 @@
+df<-data.frame(
+   Age=c(13, 13, 14, 12, 12, 15, 11, 15, 14, 14, 14, 
+         15, 12, 13, 12, 16, 12, 11, 15 ), 
+   Height=c(144, 166, 163, 143, 152, 169, 130, 159, 
+            160, 175, 161, 170, 146, 159, 150, 183, 
+            165, 146, 169), 
+   Weight=c(38.1, 44.5, 40.8, 34.9, 38.3, 50.8, 22.9, 
+            51.0, 46.5, 51.0, 46.5, 60.3, 37.7, 38.1, 
+            45.1, 68.0, 58.1, 38.6, 50.8)
+)
+attach(df)
+## figure 1
+hist(Height, col="lightblue", border="red",
+     labels = TRUE, ylim=c(0, 7.2))
+## figure 2
+r <- hist(Height, breaks = 12, freq = FALSE,  
+          density = 10, angle = 15+30*1:6)
+text(r$mids, 0, r$counts, adj=c(.5, -.5), cex=1.2 )
+lines(density(Height), col = "blue", lwd=2)
+x <- seq(from = 130, to = 190, by = 0.5)
+lines(x, dnorm(x, mean(Height), sd(Height)), 
+      col="red", lwd=2)
+detach()

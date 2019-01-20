@@ -1,0 +1,6 @@
+library(nleqslv)
+source("GPSfun.R"); source("LongLati.R")
+xstart <- c(0, 6370, 0, 0.0001)
+rt <- read.table("GPS1.data")
+sol <- nleqslv(x = xstart, fn = GPS_F, jac = GPS_J, data = rt)
+str(LongLati(sol$x), digits.d=10)

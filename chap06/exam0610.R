@@ -1,0 +1,6 @@
+f <- function(x) exp(-x^2)
+integrate(f, 0, 1)
+integrate(f, 0, 10)
+integrate(f, 0, 100)
+integrate(f, 0, 10000)
+integrate(f, 0, 'inf')
